@@ -136,8 +136,7 @@
 
       fetch("https://formspree.io/f/xvgaqgal", {
         method: "POST",
-        body: datos,
-        headers: { 'Accept': 'application/json' }
+        body: datos
       }).then(() => {
         localStorage.setItem("dalian_enviado", Date.now());
         document.getElementById("seccion-formulario").reset();
