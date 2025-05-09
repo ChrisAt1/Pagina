@@ -1,4 +1,4 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -6,19 +6,27 @@
   <title>Solicitud de reparación | Dalian</title>
   <link rel="stylesheet" href="style.css" />
   <script>
-    window.onload = () => {
-      const form = document.querySelector("form");
-      const bloqueado = localStorage.getItem("formularioBloqueado");
+    function bloquearFormulario() {
+      const ahora = new Date().getTime();
+      localStorage.setItem("ultimaSolicitud", ahora);
+    }
 
-      if (bloqueado && Date.now() - parseInt(bloqueado) < 86400000) {
+    function verificarBloqueo() {
+      const ultima = localStorage.getItem("ultimaSolicitud");
+      const ahora = new Date().getTime();
+      if (ultima && ahora - parseInt(ultima) < 86400000) {
         document.getElementById("formulario").innerHTML =
-          "<p class='bloqueado'>Ya enviaste una solicitud. Vuelve en 24 horas.</p>";
-        return;
+          "<p class='bloqueado'>Ya enviaste una solicitud. Espera 24 horas para volver a enviar.</p>";
+        return true;
       }
+      return false;
+    }
 
-      form.addEventListener("submit", () => {
-        localStorage.setItem("formularioBloqueado", Date.now().toString());
-      });
+    window.onload = () => {
+      if (!verificarBloqueo()) {
+        const form = document.querySelector("form");
+        form.addEventListener("submit", () => bloquearFormulario());
+      }
     };
   </script>
 </head>
