@@ -11,21 +11,35 @@ body {
 .container {
   background-color: white;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   width: 90%;
-  max-width: 450px;
+  max-width: 460px;
   text-align: center;
+  animation: slideUp 0.8s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
 }
 
 .home h1 {
   color: #00796b;
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
 .home p {
   color: #555;
-  margin-bottom: 30px;
+  font-size: 1.1em;
+  margin-bottom: 25px;
 }
 
 .btn {
@@ -33,20 +47,21 @@ body {
   color: white;
   text-decoration: none;
   padding: 15px 25px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
   display: inline-block;
 }
 
 .btn:hover {
   background-color: #004d40;
+  transform: scale(1.05);
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
   margin-top: 20px;
 }
 
@@ -57,28 +72,25 @@ label {
 }
 
 input {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 1em;
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 12px;
   background-color: #00796b;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 1em;
   font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #004d40;
-}
-
-.bloqueado {
-  color: red;
-  font-weight: bold;
-  padding: 20px;
 }
