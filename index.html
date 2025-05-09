@@ -45,7 +45,7 @@
       flex-direction: column;
       gap: 1rem;
     }
-    input, button, textarea {
+    input, button {
       padding: 0.7rem;
       font-size: 1rem;
       border: 1px solid #bbb;
@@ -89,7 +89,7 @@
   <section class="contenido">
     <div id="seccion-formulario" class="formulario oculto">
       <input type="text" id="nombre" placeholder="Nombre completo" required />
-      <input type="text" id="direccion" placeholder="Dirección exacta (Ej: 123 Main St, Miami FL)" required />
+      <input type="text" id="direccion" placeholder="Dirección (Ej: 123 Main St, Miami FL)" required />
       <input type="tel" id="telefono" placeholder="Número de celular" required />
       <input type="email" id="correo" placeholder="Correo electrónico" required />
       <button class="enviar" onclick="enviarSolicitud()">Enviar solicitud</button>
@@ -101,10 +101,6 @@
   </section>
 
   <script>
-    const apiKey = "YOUR_OPENCAGE_API_KEY"; // reemplaza con tu API key
-    const form = document.getElementById("seccion-formulario");
-    const mensaje = document.getElementById("mensaje-enviado");
-
     function mostrarFormulario() {
       const ultima = localStorage.getItem("dalian_enviado");
       const ahora = Date.now();
@@ -112,13 +108,13 @@
         alert("Ya enviaste una solicitud en las últimas 24 horas.");
         return;
       }
-      form.classList.remove("oculto");
-      mensaje.classList.add("oculto");
+      document.getElementById("seccion-formulario").classList.remove("oculto");
+      document.getElementById("mensaje-enviado").classList.add("oculto");
     }
 
     function enviarSolicitud() {
       const nombre = document.getElementById("nombre").value.trim();
-      const direccion = document.getElementById("direccion").value.trim();
+      const direccion = document.getElementById("direccion").value.trim().toLowerCase();
       const telefono = document.getElementById("telefono").value.trim();
       const correo = document.getElementById("correo").value.trim();
 
@@ -127,54 +123,29 @@
         return;
       }
 
-      fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(direccion)}&key=${apiKey}`)
-        .then(response => response.json())
-        .then(data => {
-          const results = data.results;
-          if (results.length === 0) {
-            alert("La dirección no es válida. Por favor ingresa una dirección correcta.");
-            return;
-          }
+      if (!direccion.includes("miami") || !direccion.includes("fl")) {
+        alert("Solo aceptamos direcciones dentro de Miami, FL.");
+        return;
+      }
 
-          const components = results[0].components;
-          const ciudad = (
-            (components.city || "") +
-            " " +
-            (components.town || "") +
-            " " +
-            (components.village || "") +
-            " " +
-            (components.suburb || "")
-          ).toLowerCase();
-          const estado = (components.state_code || "").toUpperCase();
+      const datos = new FormData();
+      datos.append("nombre", nombre);
+      datos.append("direccion", direccion);
+      datos.append("telefono", telefono);
+      datos.append("correo", correo);
 
-          if (!ciudad.includes("miami") || estado !== "FL") {
-            alert("Solo aceptamos solicitudes dentro de Miami, Florida.");
-            return;
-          }
-
-          const datos = new FormData();
-          datos.append("nombre", nombre);
-          datos.append("direccion", direccion);
-          datos.append("telefono", telefono);
-          datos.append("correo", correo);
-
-          fetch("https://formspree.io/f/xvgaqgal", {
-            method: "POST",
-            body: datos,
-            headers: { 'Accept': 'application/json' }
-          }).then(() => {
-            localStorage.setItem("dalian_enviado", Date.now());
-            form.reset();
-            form.classList.add("oculto");
-            mensaje.classList.remove("oculto");
-          }).catch(() => {
-            alert("Hubo un error al enviar. Intenta nuevamente.");
-          });
-        })
-        .catch(() => {
-          alert("Hubo un error al validar la dirección. Intenta nuevamente.");
-        });
+      fetch("https://formspree.io/f/xvgaqgal", {
+        method: "POST",
+        body: datos,
+        headers: { 'Accept': 'application/json' }
+      }).then(() => {
+        localStorage.setItem("dalian_enviado", Date.now());
+        document.getElementById("seccion-formulario").reset();
+        document.getElementById("seccion-formulario").classList.add("oculto");
+        document.getElementById("mensaje-enviado").classList.remove("oculto");
+      }).catch(() => {
+        alert("Hubo un error al enviar. Intenta nuevamente.");
+      });
     }
   </script>
 </body>
