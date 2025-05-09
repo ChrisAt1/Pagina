@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dalian - Reparación de Aires Acondicionados</title>
+  <title>Dalian - Reparación de Aires</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
@@ -40,7 +40,7 @@
       max-width: 600px;
       margin: auto;
     }
-    .formulario {
+    form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -51,14 +51,14 @@
       border: 1px solid #bbb;
       border-radius: 6px;
     }
-    button.enviar {
+    button {
       background-color: #00796b;
       color: white;
       border: none;
       cursor: pointer;
       transition: background 0.3s;
     }
-    button.enviar:hover {
+    button:hover {
       background-color: #004d40;
     }
     .oculto {
@@ -87,13 +87,13 @@
   </nav>
 
   <section class="contenido">
-    <div id="seccion-formulario" class="formulario oculto">
-      <input type="text" id="nombre" placeholder="Nombre completo" required />
-      <input type="text" id="direccion" placeholder="Dirección (Ej: 123 Main St, Miami FL)" required />
-      <input type="tel" id="telefono" placeholder="Número de celular" required />
-      <input type="email" id="correo" placeholder="Correo electrónico" required />
-      <button class="enviar" onclick="enviarSolicitud()">Enviar solicitud</button>
-    </div>
+    <form id="formulario" class="oculto" action="https://formspree.io/f/xvgaqgal" method="POST" onsubmit="return validarFormulario()">
+      <input type="text" name="name" id="nombre" placeholder="Tu nombre" required />
+      <input type="email" name="email" id="correo" placeholder="Tu correo" required />
+      <input type="text" name="telefono" id="telefono" placeholder="Número de celular" required />
+      <input type="text" name="message" id="direccion" placeholder="Dirección en Miami, FL" required />
+      <button type="submit">Enviar solicitud</button>
+    </form>
 
     <div id="mensaje-enviado" class="mensaje oculto">
       Gracias por hacer su solicitud.
@@ -108,43 +108,21 @@
         alert("Ya enviaste una solicitud en las últimas 24 horas.");
         return;
       }
-      document.getElementById("seccion-formulario").classList.remove("oculto");
+      document.getElementById("formulario").classList.remove("oculto");
       document.getElementById("mensaje-enviado").classList.add("oculto");
     }
 
-    function enviarSolicitud() {
-      const nombre = document.getElementById("nombre").value.trim();
-      const direccion = document.getElementById("direccion").value.trim().toLowerCase();
-      const telefono = document.getElementById("telefono").value.trim();
-      const correo = document.getElementById("correo").value.trim();
-
-      if (!nombre || !direccion || !telefono || !correo) {
-        alert("Por favor completa todos los campos.");
-        return;
+    function validarFormulario() {
+      const direccion = document.getElementById("direccion").value.toLowerCase();
+      if (!direccion.includes("miami")) {
+        alert("La dirección debe estar en Miami.");
+        return false;
       }
 
-      if (!direccion.includes("miami") || !direccion.includes("fl")) {
-        alert("Solo aceptamos direcciones dentro de Miami, FL.");
-        return;
-      }
-
-      const datos = new FormData();
-      datos.append("nombre", nombre);
-      datos.append("direccion", direccion);
-      datos.append("telefono", telefono);
-      datos.append("correo", correo);
-
-      fetch("https://formspree.io/f/xvgaqgal", {
-        method: "POST",
-        body: datos
-      }).then(() => {
-        localStorage.setItem("dalian_enviado", Date.now());
-        document.getElementById("seccion-formulario").reset();
-        document.getElementById("seccion-formulario").classList.add("oculto");
-        document.getElementById("mensaje-enviado").classList.remove("oculto");
-      }).catch(() => {
-        alert("Hubo un error al enviar. Intenta nuevamente.");
-      });
+      localStorage.setItem("dalian_enviado", Date.now());
+      document.getElementById("formulario").classList.add("oculto");
+      document.getElementById("mensaje-enviado").classList.remove("oculto");
+      return true;
     }
   </script>
 </body>
