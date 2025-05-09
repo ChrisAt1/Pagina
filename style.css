@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #b2ebf2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.home h1 {
+  color: #00796b;
+  margin-bottom: 10px;
+}
+
+.home p {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #00796b;
+  color: white;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #004d40;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #004d40;
+}
+
+.bloqueado {
+  color: red;
+  font-weight: bold;
+  padding: 20px;
+}
