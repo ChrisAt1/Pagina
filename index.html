@@ -2,25 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mi Página Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dalian | Reparación de Aires</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Bienvenido a Mi Página Web</h1>
-    <p>Hecha con HTML, CSS y un toque de JavaScript</p>
-  </header>
+  <div class="container">
+    <h1>Dalian</h1>
+    <p>Especialistas en reparación de aires acondicionados</p>
 
-  <main>
-    <button onclick="mostrarMensaje()">Haz clic aquí</button>
-    <p id="mensaje"></p>
-  </main>
+    <form action="https://formspree.io/f/tu-form-id" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
 
-  <footer>
-    <p>© 2025 - Mi nombre o usuario de GitHub</p>
-  </footer>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" required>
 
-  <script src="script.js"></script>
+      <label for="contacto">Número de celular:</label>
+      <input type="tel" id="contacto" name="contacto" required>
+
+      <input type="hidden" name="_subject" value="Nuevo cliente de Dalian">
+      <input type="hidden" name="_next" value="https://tu-sitio.github.io/gracias.html">
+
+      <button type="submit">Enviar solicitud</button>
+    </form>
+  </div>
 </body>
 </html>
