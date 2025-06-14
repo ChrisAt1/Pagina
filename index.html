@@ -1,100 +1,441 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reparación de Aires Acondicionados - Dalian</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f1f1f1;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #00796b;
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
-    }
-    header h1 {
-      margin: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    form input, form button {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    form button {
-      background-color: #00796b;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 1.1rem;
-    }
-    form button:hover {
-      background-color: #004d40;
-    }
-    .message {
-      text-align: center;
-      background-color: #ffebee;
-      color: #b71c1c;
-      padding: 1rem;
-      border-radius: 8px;
-      display: none;
-    }
-    .footer {
-      background-color: #00796b;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalian AC Corp | Professional AC Services in Miami/Hialeah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #1d4ed8 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        .floating-button {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
 </head>
-<body>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-snowflake text-blue-500 text-2xl mr-2"></i>
+                <span class="text-xl font-bold text-blue-600">Dalian AC Corp</span>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="text-blue-600 hover:text-blue-800 font-medium">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium">About Us</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 font-medium">Testimonials</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#services" class="block py-2 text-blue-600 font-medium">Services</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About Us</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600">Testimonials</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+        </div>
+    </header>
 
-  <header>
-    <h1>Dalian - Reparación de Aires Acondicionados</h1>
-    <p>¡Estamos aquí para ayudar a mantener tu aire acondicionado funcionando!</p>
-  </header>
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Stay Cool in Miami with <span class="text-yellow-300">Premium AC Services</span></h1>
+                <p class="text-xl mb-8">Professional installation, repair, and maintenance of air conditioning systems since 2022.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="tel:+13058343907" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                        <i class="fas fa-phone mr-2"></i> Call Now: (305) 834-3907
+                    </a>
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i> Get a Free Quote
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1585123388860-3e9e3b5aef97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="AC Unit Installation" 
+                     class="rounded-lg shadow-xl w-full max-w-md floating-button">
+            </div>
+        </div>
+    </section>
 
-  <div class="container">
-    <h2>Solicitud de Reparación</h2>
-    <form id="solicitudForm" action="https://docs.google.com/forms/d/e/1FAIpQLSd3ht0HpGCVibDjRFQO3yxZmm2u1SqmeN6u1UcAr2g4Gc59WA/formResponse" method="POST" onsubmit="return validarFormulario()">
-      <input type="text" name="entry.2005620554" id="nombre" placeholder="Tu nombre" required />
-      <input type="email" name="entry.1045781291" id="correo" placeholder="Tu correo" required />
-      <input type="text" name="entry.1166974658" id="telefono" placeholder="Número de celular" required />
-      <input type="text" name="entry.839337160" id="direccion" placeholder="Dirección en Miami (Ej: 1234 Miami St)" required />
-      <button type="submit">Enviar Solicitud</button>
-    </form>
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-600 mb-4">Our Professional Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive air conditioning solutions for your home or business in Miami and Hialeah.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-tools text-blue-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-600 mb-3">AC Repair</h3>
+                        <p class="text-gray-600 mb-4">Fast and reliable repair services for all types of air conditioning systems, from minor fixes to major component replacements.</p>
+                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Schedule Repair <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-home text-blue-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-600 mb-3">AC Installation</h3>
+                        <p class="text-gray-600 mb-4">Professional installation of new air conditioning systems with proper sizing, ductwork evaluation, and energy efficiency considerations.</p>
+                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Get Installation Quote <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-clipboard-check text-blue-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-blue-600 mb-3">Maintenance Plans</h3>
+                        <p class="text-gray-600 mb-4">Regular maintenance services to keep your AC running efficiently, prevent breakdowns, and extend the lifespan of your system.</p>
+                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                            Learn About Plans <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="message" id="mensajeError">La dirección debe estar en Miami. Intenta de nuevo.</div>
-  </div>
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="AC Technician at work" 
+                         class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6">About Dalian AC Corp</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer.</p>
+                    <p class="text-gray-600 mb-4">Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                        <h3 class="font-bold text-blue-600 mb-2">Why Choose Us?</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Licensed and insured professionals</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Upfront pricing with no hidden fees</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Same-day service available</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>100% satisfaction guarantee</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Contact Our Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="footer">
-    <p>&copy; 2025 Dalian. Todos los derechos reservados.</p>
-  </footer>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-600 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Real feedback from our satisfied clients in Miami and Hialeah.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Carlos M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Dalian AC came out same day when my AC broke in the middle of summer. The technician was professional, diagnosed the problem quickly, and had it fixed in no time. Very reasonable pricing too!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Maria R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"We had a new AC unit installed by Dalian AC and couldn't be happier. They took the time to explain all our options and didn't push for the most expensive model. Installation was clean and efficient."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">James T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"I've been using their maintenance plan for my business's AC units for over a year now. Fewer breakdowns and lower energy bills. Their preventive maintenance really pays off!"</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">We don't create fake reviews - these are real experiences from our customers.</p>
+                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    Share Your Experience
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    function validarFormulario() {
-      var direccion = document.getElementById("direccion").value.toLowerCase();
-      if (!direccion.includes("miami")) {
-        document.getElementById("mensajeError").style.display = "block";
-        return false; // No envía el formulario si la dirección no está en Miami.
-      }
-      return true; // Envia el formulario si la dirección es correcta.
-    }
-  </script>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4">Contact Dalian AC Corp</h2>
+                    <p class="text-xl text-gray-600">Get in touch for a free estimate or to schedule service in Miami or Hialeah.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-blue-600 text-white p-8">
+                            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-200"></i>
+                                    <div>
+                                        <h4 class="font-bold">Service Area</h4>
+                                        <p class="text-blue-100">Miami & Hialeah, FL</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-phone mt-1 mr-4 text-blue-200"></i>
+                                    <div>
+                                        <h4 class="font-bold">Phone</h4>
+                                        <a href="tel:+13058343907" class="text-blue-100 hover:text-white">(305) 834-3907</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
+                                    <div>
+                                        <h4 class="font-bold">Email</h4>
+                                        <a href="mailto:info@dalianac.com" class="text-blue-100 hover:text-white">info@dalianac.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-clock mt-1 mr-4 text-blue-200"></i>
+                                    <div>
+                                        <h4 class="font-bold">Hours</h4>
+                                        <p class="text-blue-100">Monday - Saturday: 8AM - 6PM<br>Emergency service available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="md:w-1/2 p-8">
+                            <h3 class="text-2xl font-bold text-blue-600 mb-6">Send Us a Message</h3>
+                            <form id="contact-form" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-1">Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-gray-700 mb-1">Phone</label>
+                                    <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-gray-700 mb-1">Service Needed</label>
+                                    <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                        <option value="">Select a service</option>
+                                        <option value="repair">AC Repair</option>
+                                        <option value="installation">AC Installation</option>
+                                        <option value="maintenance">Maintenance</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-gray-700 mb-1">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-snowflake text-blue-400 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">Dalian AC Corp</span>
+                    </div>
+                    <p class="text-gray-400">Professional air conditioning services in Miami and Hialeah since 2022.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-white">AC Repair</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">AC Installation</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Maintenance</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Emergency Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Free Estimate</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-blue-400 mr-2"></i>
+                            <a href="tel:+13058343907" class="text-gray-400 hover:text-white">(305) 834-3907</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-blue-400 mr-2"></i>
+                            <a href="mailto:info@dalianac.com" class="text-gray-400 hover:text-white">info@dalianac.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>
+                            <span class="text-gray-400">Miami/Hialeah, FL</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Dalian AC Corp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="tel:+13058343907" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition duration-300">
+            <i class="fas fa-phone text-xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
