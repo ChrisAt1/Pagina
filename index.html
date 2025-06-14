@@ -28,6 +28,20 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        /* New styles added */
+        .floating-action-button {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .required-field::after {
+            content: "*";
+            color: red;
+            margin-left: 2px;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800">
@@ -182,7 +196,6 @@
         </div>
     </section>
 
-
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-4">
@@ -215,7 +228,7 @@
                                     <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
                                     <div>
                                         <h4 class="font-bold">Email</h4>
-                                        <a href="mailto:chrissb150e@gmail.com" class="text-blue-100 hover:text-white">chrissb150e@gmail.com</a>
+                                        <a href="mailto:info@dalianac.com" class="text-blue-100 hover:text-white">info@dalianac.com</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
@@ -232,20 +245,20 @@
                             <h3 class="text-2xl font-bold text-blue-600 mb-6">Send Us a Message</h3>
                             <form id="contact-form" class="space-y-4">
                                 <div>
-                                    <label for="name" class="block text-gray-700 mb-1">Name</label>
-                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label for="name" class="block text-gray-700 mb-1 required-field">Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
                                     <label for="email" class="block text-gray-700 mb-1">Email</label>
                                     <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
-                                    <label for="phone" class="block text-gray-700 mb-1">Phone</label>
-                                    <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label for="phone" class="block text-gray-700 mb-1 required-field">Phone</label>
+                                    <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
-                                    <label for="service" class="block text-gray-700 mb-1">Service Needed</label>
-                                    <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label for="service" class="block text-gray-700 mb-1 required-field">Service Needed</label>
+                                    <select id="service" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                         <option value="">Select a service</option>
                                         <option value="repair">AC Repair</option>
                                         <option value="installation">AC Installation</option>
@@ -306,7 +319,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope text-blue-400 mr-2"></i>
-                            <a href="mailto:chrissb150e@gmail.com" class="text-gray-400 hover:text-white">chrissb150e@gmail.com</a>
+                            <a href="mailto:info@dalianac.com" class="text-gray-400 hover:text-white">info@dalianac.com</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>
@@ -334,7 +347,7 @@
 
     <!-- Floating Action Button -->
     <div class="fixed bottom-6 right-6 z-50">
-        <a href="tel:+13058343907" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition duration-300">
+        <a href="tel:+13058343907" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition duration-300 floating-action-button">
             <i class="fas fa-phone text-xl"></i>
         </a>
     </div>
@@ -346,10 +359,38 @@
             menu.classList.toggle('hidden');
         });
 
-        // Form submission
+        // Form submission with validation
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will contact you shortly.');
+            
+            // Basic validation
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            
+            if (!name || !phone || !service) {
+                alert('Please fill in all required fields (marked with *)');
+                return;
+            }
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50';
+            successMessage.innerHTML = `
+                <div class="bg-white p-8 rounded-lg shadow-xl max-w-md mx-4">
+                    <div class="text-center">
+                        <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+                        <p class="text-gray-600 mb-6">Your message has been sent successfully. We will contact you shortly.</p>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(successMessage);
+            
+            // Reset form
             this.reset();
         });
 
@@ -360,6 +401,12 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                const menu = document.getElementById('mobile-menu');
+                if (!menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                }
             });
         });
 
@@ -401,6 +448,9 @@
             document.querySelector('#contact-form option[value="maintenance"]').textContent = 'Mantenimiento';
             document.querySelector('#contact-form label[for="message"]').textContent = 'Mensaje';
             document.querySelector('#contact-form button').textContent = 'Enviar Mensaje';
+            document.querySelectorAll('.required-field').forEach(el => {
+                el.textContent = el.textContent.replace('*', '') + '*';
+            });
         });
 
         document.getElementById('lang-en').addEventListener('click', function() {
@@ -440,6 +490,9 @@
             document.querySelector('#contact-form option[value="maintenance"]').textContent = 'Maintenance';
             document.querySelector('#contact-form label[for="message"]').textContent = 'Message';
             document.querySelector('#contact-form button').textContent = 'Send Message';
+            document.querySelectorAll('.required-field').forEach(el => {
+                el.textContent = el.textContent.replace('*', '') + '*';
+            });
         });
     </script>
 </body>
