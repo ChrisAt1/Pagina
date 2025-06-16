@@ -8,18 +8,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .hero-gradient {
-            background: linear-gradient(135deg, #0ea5e9 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #6b7280 0%, #1e3a8a 100%);
+        }
+        .service-card {
+            border-radius: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
         }
         .floating-button {
             animation: float 3s ease-in-out infinite;
         }
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
             100% { transform: translateY(0px); }
         }
         .floating-action-button {
@@ -27,12 +31,12 @@
         }
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         .required-field::after {
             content: "*";
-            color: red;
+            color: #ef4444;
             margin-left: 2px;
         }
         [lang="es"] .english-only,
@@ -41,50 +45,50 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body class="font-sans text-gray-700 bg-gray-50">
     <!-- Header/Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <i class="fas fa-snowflake text-blue-500 text-2xl mr-2"></i>
-                <span class="text-xl font-bold text-blue-600">Dalian AC Corp</span>
+                <i class="fas fa-snowflake text-blue-600 text-2xl mr-3"></i>
+                <span class="text-2xl font-bold text-blue-700">Dalian AC Corp</span>
             </div>
-            <div class="flex items-center space-x-2">
-                <button id="lang-es" class="px-2 py-1 bg-gray-200 text-gray-700 rounded text-sm spanish-only">ES</button>
-                <button id="lang-en" class="px-2 py-1 bg-blue-600 text-white rounded text-sm english-only">EN</button>
+            <div class="flex items-center space-x-3">
+                <button id="lang-es" class="px-3 py-1 bg-gray-200 text-gray-800 rounded-md text-sm hover:bg-gray-300 spanish-only">ES</button>
+                <button id="lang-en" class="px-3 py-1 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 english-only">EN</button>
             </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#services" class="text-blue-600 hover:text-blue-800 font-medium" data-en="Services" data-es="Servicios">Services</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium" data-en="About Us" data-es="Nosotros">About Us</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 font-medium" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium" data-en="Contact" data-es="Contacto">Contact</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#services" class="text-blue-700 hover:text-blue-900 font-semibold" data-en="Services" data-es="Servicios">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-700 font-semibold" data-en="About Us" data-es="Nosotros">About Us</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-700 font-semibold" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-700 font-semibold" data-en="Contact" data-es="Contacto">Contact</a>
             </nav>
             <div class="md:hidden">
-                <button id="menu-toggle" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                <button id="menu-toggle" class="text-gray-600 hover:text-blue-700 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-            <a href="#services" class="block py-2 text-blue-600 font-medium" data-en="Services" data-es="Servicios">Services</a>
-            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600" data-en="About Us" data-es="Nosotros">About Us</a>
-            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
-            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600" data-en="Contact" data-es="Contacto">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-6 shadow-lg">
+            <a href="#services" class="block py-3 text-blue-700 font-semibold hover:bg-gray-100 rounded" data-en="Services" data-es="Servicios">Services</a>
+            <a href="#about" class="block py-3 text-gray-600 hover:text-blue-700 hover:bg-gray-100 rounded" data-en="About Us" data-es="Nosotros">About Us</a>
+            <a href="#testimonials" class="block py-3 text-gray-600 hover:text-blue-700 hover:bg-gray-100 rounded" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+            <a href="#contact" class="block py-3 text-gray-600 hover:text-blue-700 hover:bg-gray-100 rounded" data-en="Contact" data-es="Contacto">Contact</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-gradient text-white py-16 md:py-24">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <section class="hero-gradient text-white py-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4" data-en="Stay Cool in Miami with <span class='text-yellow-300'>Premium AC Services</span>" data-es="Mantente fresco en Miami con <span class='text-yellow-300'>Servicios Premium de AC</span>">Stay Cool in Miami with <span class="text-yellow-300">Premium AC Services</span></h1>
-                <p class="text-xl mb-8" data-en="Professional installation, repair, and maintenance of air conditioning systems since 2022." data-es="Instalación, reparación y mantenimiento profesional de sistemas de aire acondicionado desde 2022.">Professional installation, repair, and maintenance of air conditioning systems since 2022.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="tel:+13058343907" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-6 rounded-lg text-center transition duration-300" data-en="<i class='fas fa-phone mr-2'></i> Call Now: (305) 834-3907" data-es="<i class='fas fa-phone mr-2'></i> Llama ahora: (305) 834-3907">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6" data-en="Stay Cool in Miami with <span class='text-yellow-400'>Premium AC Services</span>" data-es="Mantente fresco en Miami con <span class='text-yellow-400'>Servicios Premium de AC</span>">Stay Cool in Miami with <span class="text-yellow-400">Premium AC Services</span></h1>
+                <p class="text-lg md:text-xl mb-8" data-en="Professional installation, repair, and maintenance of air conditioning systems since 2022." data-es="Instalación, reparación y mantenimiento profesional de sistemas de aire acondicionado desde 2022.">Professional installation, repair, and maintenance of air conditioning systems since 2022.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="tel:+13058343907" class="bg-yellow-400 hover:bg-yellow-500 text-blue-800 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 flex items-center" data-en="<i class='fas fa-phone mr-2'></i> Call Now: (305) 834-3907" data-es="<i class='fas fa-phone mr-2'></i> Llama ahora: (305) 834-3907">
                         <i class="fas fa-phone mr-2"></i> Call Now: (305) 834-3907
                     </a>
-                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg text-center transition duration-300" data-en="<i class='fas fa-envelope mr-2'></i> Get a Free Quote" data-es="<i class='fas fa-envelope mr-2'></i> Obtén una cotización gratis">
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-700 font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 flex items-center" data-en="<i class='fas fa-envelope mr-2'></i> Get a Free Quote" data-es="<i class='fas fa-envelope mr-2'></i> Obtén una cotización gratis">
                         <i class="fas fa-envelope mr-2"></i> Get a Free Quote
                     </a>
                 </div>
@@ -92,57 +96,57 @@
             <div class="md:w-1/2 flex justify-center">
                 <img src="https://images.unsplash.com/photo-1585123388860-3e9e3b5aef97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                      alt="AC Unit Installation" 
-                     class="rounded-lg shadow-xl w-full max-w-md floating-button">
+                     class="rounded-xl shadow-lg max-w-full md:max-w-md floating-button">
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-600 mb-4" data-en="Our Professional Services" data-es="Nuestros Servicios Profesionales">Our Professional Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="Comprehensive air conditioning solutions for your home or business in Miami and Hialeah." data-es="Soluciones completas de aire acondicionado para tu hogar o negocio en Miami y Hialeah.">Comprehensive air conditioning solutions for your home or business in Miami and Hialeah.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-4" data-en="Our Professional Services" data-es="Nuestros Servicios Profesionales">Our Professional Services</h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto" data-en="Comprehensive air conditioning solutions for your home or business in Miami and Hialeah." data-es="Soluciones completas de aire acondicionado para tu hogar o negocio en Miami y Hialeah.">Comprehensive air conditioning solutions for your home or business in Miami and Hialeah.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-tools text-blue-600 text-6xl"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card">
+                    <div class="h-48 bg-blue-50 flex items-center justify-center">
+                        <i class="fas fa-tools text-blue-600 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3" data-en="AC Repair" data-es="Reparación de AC">AC Repair</h3>
+                        <h3 class="text-xl font-bold text-blue-700 mb-3" data-en="AC Repair" data-es="Reparación de AC">AC Repair</h3>
                         <p class="text-gray-600 mb-4" data-en="Fast and reliable repair services for all types of air conditioning systems, from minor fixes to major component replacements." data-es="Servicios de reparación rápidos y confiables para todo tipo de sistemas de aire acondicionado, desde arreglos menores hasta reemplazos de componentes principales.">Fast and reliable repair services for all types of air conditioning systems, from minor fixes to major component replacements.</p>
-                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center" data-en="Schedule Repair <i class='fas fa-arrow-right ml-2'></i>" data-es="Agendar Reparación <i class='fas fa-arrow-right ml-2'></i>">
+                        <a href="#contact" class="text-blue-700 font-semibold hover:text-blue-900 flex items-center" data-en="Schedule Repair <i class='fas fa-arrow-right ml-2'></i>" data-es="Agendar Reparación <i class='fas fa-arrow-right ml-2'></i>">
                             Schedule Repair <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-home text-blue-600 text-6xl"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card">
+                    <div class="h-48 bg-blue-50 flex items-center justify-center">
+                        <i class="fas fa-home text-blue-600 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3" data-en="AC Installation" data-es="Instalación de AC">AC Installation</h3>
+                        <h3 class="text-xl font-bold text-blue-700 mb-3" data-en="AC Installation" data-es="Instalación de AC">AC Installation</h3>
                         <p class="text-gray-600 mb-4" data-en="Professional installation of new air conditioning systems with proper sizing, ductwork evaluation, and energy efficiency considerations." data-es="Instalación profesional de nuevos sistemas de aire acondicionado con dimensionamiento adecuado, evaluación de ductos y consideraciones de eficiencia energética.">Professional installation of new air conditioning systems with proper sizing, ductwork evaluation, and energy efficiency considerations.</p>
-                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center" data-en="Get Installation Quote <i class='fas fa-arrow-right ml-2'></i>" data-es="Obtener Cotización <i class='fas fa-arrow-right ml-2'></i>">
+                        <a href="#contact" class="text-blue-700 font-semibold hover:text-blue-900 flex items-center" data-en="Get Installation Quote <i class='fas fa-arrow-right ml-2'></i>" data-es="Obtener Cotización <i class='fas fa-arrow-right ml-2'></i>">
                             Get Installation Quote <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden service-card transition duration-300">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <i class="fas fa-clipboard-check text-blue-600 text-6xl"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden service-card">
+                    <div class="h-48 bg-blue-50 flex items-center justify-center">
+                        <i class="fas fa-clipboard-check text-blue-600 text-5xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3" data-en="Maintenance Plans" data-es="Planes de Mantenimiento">Maintenance Plans</h3>
+                        <h3 class="text-xl font-bold text-blue-700 mb-3" data-en="Maintenance Plans" data-es="Planes de Mantenimiento">Maintenance Plans</h3>
                         <p class="text-gray-600 mb-4" data-en="Regular maintenance services to keep your AC running efficiently, prevent breakdowns, and extend the lifespan of your system." data-es="Servicios de mantenimiento regular para mantener tu AC funcionando eficientemente, prevenir fallas y extender la vida útil de tu sistema.">Regular maintenance services to keep your AC running efficiently, prevent breakdowns, and extend the lifespan of your system.</p>
-                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center" data-en="Learn About Plans <i class='fas fa-arrow-right ml-2'></i>" data-es="Conoce los Planes <i class='fas fa-arrow-right ml-2'></i>">
+                        <a href="#contact" class="text-blue-700 font-semibold hover:text-blue-900 flex items-center" data-en="Learn About Plans <i class='fas fa-arrow-right ml-2'></i>" data-es="Conoce los Planes <i class='fas fa-arrow-right ml-2'></i>">
                             Learn About Plans <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -152,40 +156,40 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/2 mb-8 md:mb-0">
                     <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                          alt="AC Technician at work" 
-                         class="rounded-lg shadow-lg w-full">
+                         class="rounded-xl shadow-lg w-full">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold text-blue-600 mb-6" data-en="About Dalian AC Corp" data-es="Acerca de Dalian AC Corp">About Dalian AC Corp</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-6" data-en="About Dalian AC Corp" data-es="Acerca de Dalian AC Corp">About Dalian AC Corp</h2>
                     <p class="text-gray-600 mb-4" data-en="Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer." data-es="Fundada en 2022, Dalian AC Corp se ha convertido rápidamente en un nombre confiable para servicios de aire acondicionado en Miami y Hialeah. Nos enorgullecemos de ofrecer un servicio honesto, confiable y profesional a cada cliente.">Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer.</p>
-                    <p class="text-gray-600 mb-4" data-en="Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry." data-es="Nuestro equipo de técnicos certificados tiene amplia experiencia trabajando con todas las principales marcas y sistemas de AC. Mantenemos nuestros conocimientos actualizados con las últimas tecnologías y mejores prácticas de la industria.">Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry.</p>
-                    <div class="bg-blue-50 p-4 rounded-lg mb-6">
-                        <h3 class="font-bold text-blue-600 mb-2" data-en="Why Choose Us?" data-es="¿Por qué elegirnos?">Why Choose Us?</h3>
-                        <ul class="space-y-2">
+                    <p class="text-gray-600 mb-6" data-en="Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry." data-es="Nuestro equipo de técnicos certificados tiene amplia experiencia trabajando con todas las principales marcas y sistemas de AC. Mantenemos nuestros conocimientos actualizados con las últimas tecnologías y mejores prácticas de la industria.">Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry.</p>
+                    <div class="bg-blue-50 p-6 rounded-xl mb-6">
+                        <h3 class="font-bold text-blue-700 mb-4" data-en="Why Choose Us?" data-es="¿Por qué elegirnos?">Why Choose Us?</h3>
+                        <ul class="space-y-3">
                             <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                                 <span data-en="Licensed and insured professionals" data-es="Profesionales licenciados y asegurados">Licensed and insured professionals</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                                 <span data-en="Upfront pricing with no hidden fees" data-es="Precios transparentes sin cargos ocultos">Upfront pricing with no hidden fees</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                                 <span data-en="Same-day service available" data-es="Servicio el mismo día disponible">Same-day service available</span>
                             </li>
                             <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                                 <span data-en="100% satisfaction guarantee" data-es="Garantía de satisfacción del 100%">100% satisfaction guarantee</span>
                             </li>
                         </ul>
                     </div>
-                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-en="Contact Our Team" data-es="Contacta a Nuestro Equipo">
+                    <a href="#contact" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300" data-en="Contact Our Team" data-es="Contacta a Nuestro Equipo">
                         Contact Our Team
                     </a>
                 </div>
@@ -194,44 +198,44 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4" data-en="Contact Dalian AC Corp" data-es="Contacta a Dalian AC Corp">Contact Dalian AC Corp</h2>
-                    <p class="text-xl text-gray-600" data-en="Get in touch for a free estimate or to schedule service in Miami or Hialeah." data-es="Contáctanos para una estimación gratis o para programar servicio en Miami o Hialeah.">Get in touch for a free estimate or to schedule service in Miami or Hialeah.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-700 mb-4" data-en="Contact Dalian AC Corp" data-es="Contacta a Dalian AC Corp">Contact Dalian AC Corp</h2>
+                    <p class="text-lg md:text-xl text-gray-600" data-en="Get in touch for a free estimate or to schedule service in Miami or Hialeah." data-es="Contáctanos para una estimación gratis o para programar servicio en Miami o Hialeah.">Get in touch for a free estimate or to schedule service in Miami or Hialeah.</p>
                 </div>
                 
-                <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden">
+                <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden">
                     <div class="md:flex">
-                        <div class="md:w-1/2 bg-blue-600 text-white p-8">
+                        <div class="md:w-1/2 bg-blue-700 text-white p-8">
                             <h3 class="text-2xl font-bold mb-6" data-en="Contact Information" data-es="Información de Contacto">Contact Information</h3>
                             <div class="space-y-6">
                                 <div class="flex items-start">
                                     <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold" data-en="Service Area" data-es="Área de Servicio">Service Area</h4>
+                                        <h4 class="font-semibold" data-en="Service Area" data-es="Área de Servicio">Service Area</h4>
                                         <p class="text-blue-100">Miami & Hialeah, FL</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-phone mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold" data-en="Phone" data-es="Teléfono">Phone</h4>
+                                        <h4 class="font-semibold" data-en="Phone" data-es="Teléfono">Phone</h4>
                                         <a href="tel:+13058343907" class="text-blue-100 hover:text-white">(305) 834-3907</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold" data-en="Email" data-es="Correo Electrónico">Email</h4>
+                                        <h4 class="font-semibold" data-en="Email" data-es="Correo Electrónico">Email</h4>
                                         <a href="mailto:info@dalianac.com" class="text-blue-100 hover:text-white">info@dalianac.com</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-clock mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold" data-en="Hours" data-es="Horario">Hours</h4>
+                                        <h4 class="font-semibold" data-en="Hours" data-es="Horario">Hours</h4>
                                         <p class="text-blue-100" data-en="Monday - Saturday: 8AM - 6PM<br>Emergency service available" data-es="Lunes - Sábado: 8AM - 6PM<br>Servicio de emergencia disponible">Monday - Saturday: 8AM - 6PM<br>Emergency service available</p>
                                     </div>
                                 </div>
@@ -239,24 +243,24 @@
                         </div>
                         
                         <div class="md:w-1/2 p-8">
-                            <h3 class="text-2xl font-bold text-blue-600 mb-6" data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</h3>
-                            <form id="contact-form" class="space-y-4">
+                            <h3 class="text-2xl font-bold text-blue-700 mb-6" data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</h3>
+                            <form id="contact-form" class="space-y-5">
                                 <div>
-                                    <label for="name" class="block text-gray-700 mb-1 required-field" data-en="Name" data-es="Nombre">Name</label>
-                                    <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label for="name" class="block text-gray-700 mb-2 required-field" data-en="Name" data-es="Nombre">Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition">
                                 </div>
                                 <div>
-                                    <label for="email" class="block text-gray-700 mb-1" data-en="Email" data-es="Correo Electrónico">Email</label>
-                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label for="email" class="block text-gray-700 mb-2" data-en="Email" data-es="Correo Electrónico">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition">
                                 </div>
                                 <div>
-                                    <label for="phone" class="block text-gray-700 mb-1 required-field" data-en="Phone" data-es="Teléfono">Phone</label>
-                                    <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <label for="phone" class="block text-gray-700 mb-2 required-field" data-en="Phone" data-es="Teléfono">Phone</label>
+                                    <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition">
                                 </div>
                                 <div>
-                                    <label for="service" class="block text-gray-700 mb-1 required-field" data-en="Service Needed" data-es="Servicio Necesitado">Service Needed</label>
-                                    <select id="service" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                        <option value="">Select a service</option>
+                                    <label for="service" class="block text-gray-700 mb-2 required-field" data-en="Service Needed" data-es="Servicio Necesitado">Service Needed</label>
+                                    <select id="service" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition">
+                                        <option value="" data-en="Select a service" data-es="Selecciona un servicio">Select a service</option>
                                         <option value="repair" data-en="AC Repair" data-es="Reparación de AC">AC Repair</option>
                                         <option value="installation" data-en="AC Installation" data-es="Instalación de AC">AC Installation</option>
                                         <option value="maintenance" data-en="Maintenance" data-es="Mantenimiento">Maintenance</option>
@@ -264,10 +268,10 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="message" class="block text-gray-700 mb-1" data-en="Message" data-es="Mensaje">Message</label>
-                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+                                    <label for="message" class="block text-gray-700 mb-2" data-en="Message" data-es="Mensaje">Message</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition"></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-en="Send Message" data-es="Enviar Mensaje">
+                                <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300" data-en="Send Message" data-es="Enviar Mensaje">
                                     Send Message
                                 </button>
                             </form>
@@ -280,7 +284,7 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center mb-4">
@@ -290,7 +294,7 @@
                     <p class="text-gray-400" data-en="Professional air conditioning services in Miami and Hialeah since 2022." data-es="Servicios profesionales de aire acondicionado en Miami y Hialeah desde 2022.">Professional air conditioning services in Miami and Hialeah since 2022.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4" data-en="Services" data-es="Servicios">Services</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Services" data-es="Servicios">Services</h3>
                     <ul class="space-y-2">
                         <li><a href="#services" class="text-gray-400 hover:text-white" data-en="AC Repair" data-es="Reparación de AC">AC Repair</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-white" data-en="AC Installation" data-es="Instalación de AC">AC Installation</a></li>
@@ -299,7 +303,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4" data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="#about" class="text-gray-400 hover:text-white" data-en="About Us" data-es="Nosotros">About Us</a></li>
                         <li><a href="#testimonials" class="text-gray-400 hover:text-white" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
@@ -308,7 +312,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4" data-en="Contact" data-es="Contacto">Contact</h3>
+                    <h3 class="text-lg font-semibold mb-4" data-en="Contact" data-es="Contacto">Contact</h3>
                     <ul class="space-y-2">
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt text-blue-400 mr-2"></i>
@@ -323,28 +327,28 @@
                             <span class="text-gray-400">Miami/Hialeah, FL</span>
                         </li>
                     </ul>
-                    <div class="mt-4 flex space-x-4">
+                    <div class="mt-6 flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-facebook-f text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-instagram text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-twitter text-xl"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p data-en="&copy; 2023 Dalian AC Corp. All rights reserved." data-es="&copy; 2023 Dalian AC Corp. Todos los derechos reservados.">&copy; 2023 Dalian AC Corp. All rights reserved.</p>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p data-en="© 2023 Dalian AC Corp. All rights reserved." data-es="© 2023 Dalian AC Corp. Todos los derechos reservados.">© 2023 Dalian AC Corp. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Action Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="tel:+13058343907" class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition duration-300 floating-action-button">
+    <div class="fixed bottom-8 right-8 z-50">
+        <a href="tel:+13058343907" class="bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg flex items-center justify-center transition duration-300 floating-action-button">
             <i class="fas fa-phone text-xl"></i>
         </a>
     </div>
@@ -360,7 +364,6 @@
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Basic validation
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const service = document.getElementById('service').value;
@@ -372,18 +375,17 @@
                 return;
             }
             
-            // Show success message
             const successMessage = document.createElement('div');
             successMessage.className = 'fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50';
             successMessage.innerHTML = `
-                <div class="bg-white p-8 rounded-lg shadow-xl max-w-md mx-4">
+                <div class="bg-white p-6 rounded-xl shadow-xl max-w-md mx-4">
                     <div class="text-center">
-                        <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">${document.documentElement.lang === 'es' ? '¡Gracias!' : 'Thank You!'}</h3>
+                        <i class="fas fa-check-circle text-green-600 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">${document.documentElement.lang === 'es' ? '¡Gracias!' : 'Thank You!'}</h3>
                         <p class="text-gray-600 mb-6">${document.documentElement.lang === 'es' ? 
                             'Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo pronto.' : 
                             'Your message has been sent successfully. We will contact you shortly.'}</p>
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
                             ${document.documentElement.lang === 'es' ? 'Cerrar' : 'Close'}
                         </button>
                     </div>
@@ -391,7 +393,6 @@
             `;
             document.body.appendChild(successMessage);
             
-            // Reset form
             this.reset();
         });
 
@@ -402,8 +403,6 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
-                
-                // Close mobile menu if open
                 const menu = document.getElementById('mobile-menu');
                 if (!menu.classList.contains('hidden')) {
                     menu.classList.add('hidden');
@@ -415,17 +414,11 @@
         function setLanguage(lang) {
             document.documentElement.lang = lang;
             
-            // Update all elements with data attributes
             document.querySelectorAll('[data-en], [data-es]').forEach(element => {
-                if (element.tagName === 'OPTION' && element.value) {
-                    // Skip options with values (they're handled separately)
-                    return;
-                }
-                
+                if (element.tagName === 'OPTION' && element.value) return;
                 const text = lang === 'es' ? element.getAttribute('data-es') : element.getAttribute('data-en');
                 if (text) {
                     if (element.innerHTML.includes('<i class') || element.innerHTML.includes('<span class')) {
-                        // Preserve HTML inside the element
                         const temp = document.createElement('div');
                         temp.innerHTML = text;
                         const newText = temp.textContent || temp.innerText;
@@ -437,51 +430,34 @@
                 }
             });
             
-            // Update select options
             document.querySelectorAll('select option').forEach(option => {
                 const text = lang === 'es' ? option.getAttribute('data-es') : option.getAttribute('data-en');
-                if (text && !option.value) { // Update only the displayed text, not the value
-                    option.textContent = text;
-                }
+                if (text && !option.value) option.textContent = text;
             });
             
-            // Toggle button states
             if (lang === 'es') {
                 document.getElementById('lang-es').classList.add('bg-blue-600', 'text-white');
-                document.getElementById('lang-es').classList.remove('bg-gray-200', 'text-gray-700');
-                document.getElementById('lang-en').classList.add('bg-gray-200', 'text-gray-700');
+                document.getElementById('lang-es').classList.remove('bg-gray-200', 'text-gray-800');
+                document.getElementById('lang-en').classList.add('bg-gray-200', 'text-gray-800');
                 document.getElementById('lang-en').classList.remove('bg-blue-600', 'text-white');
-                
-                // Show/hide language-specific elements
                 document.querySelectorAll('.english-only').forEach(el => el.style.display = 'none');
                 document.querySelectorAll('.spanish-only').forEach(el => el.style.display = 'block');
             } else {
                 document.getElementById('lang-en').classList.add('bg-blue-600', 'text-white');
-                document.getElementById('lang-en').classList.remove('bg-gray-200', 'text-gray-700');
-                document.getElementById('lang-es').classList.add('bg-gray-200', 'text-gray-700');
+                document.getElementById('lang-en').classList.remove('bg-gray-200', 'text-gray-800');
+                document.getElementById('lang-es').classList.add('bg-gray-200', 'text-gray-800');
                 document.getElementById('lang-es').classList.remove('bg-blue-600', 'text-white');
-                
-                // Show/hide language-specific elements
                 document.querySelectorAll('.english-only').forEach(el => el.style.display = 'block');
                 document.querySelectorAll('.spanish-only').forEach(el => el.style.display = 'none');
             }
             
-            // Update page title
             document.title = lang === 'es' ? 
                 'Dalian AC Corp | Servicios Profesionales de Aire Acondicionado en Miami/Hialeah' : 
                 'Dalian AC Corp | Professional AC Services in Miami/Hialeah';
         }
 
-        // Language switcher event listeners
-        document.getElementById('lang-es').addEventListener('click', function() {
-            setLanguage('es');
-        });
-
-        document.getElementById('lang-en').addEventListener('click', function() {
-            setLanguage('en');
-        });
-
-        // Initialize language
+        document.getElementById('lang-es').addEventListener('click', () => setLanguage('es'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
         setLanguage('en');
     </script>
 </body>
