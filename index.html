@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dalian AC Corp | Servicios Profesionales de AC en Miami/Hialeah</title>
+    <title>Dalian AC Corp | Professional AC Services in Miami/Hialeah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -14,12 +14,6 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: scale(1.02);
-        }
         .floating-button {
             animation: float 3s ease-in-out infinite;
         }
@@ -28,7 +22,6 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-        /* New styles added */
         .floating-action-button {
             animation: pulse 2s infinite;
         }
@@ -42,6 +35,10 @@
             color: red;
             margin-left: 2px;
         }
+        [lang="es"] .english-only,
+        [lang="en"] .spanish-only {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-800">
@@ -53,14 +50,14 @@
                 <span class="text-xl font-bold text-blue-600">Dalian AC Corp</span>
             </div>
             <div class="flex items-center space-x-2">
-                <button id="lang-es" class="px-2 py-1 bg-blue-600 text-white rounded text-sm">ES</button>
-                <button id="lang-en" class="px-2 py-1 bg-gray-200 text-gray-700 rounded text-sm">EN</button>
+                <button id="lang-es" class="px-2 py-1 bg-gray-200 text-gray-700 rounded text-sm spanish-only">ES</button>
+                <button id="lang-en" class="px-2 py-1 bg-blue-600 text-white rounded text-sm english-only">EN</button>
             </div>
             <nav class="hidden md:flex space-x-8">
-                <a href="#services" class="text-blue-600 hover:text-blue-800 font-medium">Services</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium">About Us</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 font-medium">Testimonials</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium">Contact</a>
+                <a href="#services" class="text-blue-600 hover:text-blue-800 font-medium" data-en="Services" data-es="Servicios">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium" data-en="About Us" data-es="Nosotros">About Us</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 font-medium" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium" data-en="Contact" data-es="Contacto">Contact</a>
             </nav>
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-gray-600 hover:text-blue-600 focus:outline-none">
@@ -70,10 +67,10 @@
         </div>
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-            <a href="#services" class="block py-2 text-blue-600 font-medium">Services</a>
-            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About Us</a>
-            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600">Testimonials</a>
-            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
+            <a href="#services" class="block py-2 text-blue-600 font-medium" data-en="Services" data-es="Servicios">Services</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600" data-en="About Us" data-es="Nosotros">About Us</a>
+            <a href="#testimonials" class="block py-2 text-gray-600 hover:text-blue-600" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600" data-en="Contact" data-es="Contacto">Contact</a>
         </div>
     </header>
 
@@ -81,13 +78,13 @@
     <section class="hero-gradient text-white py-16 md:py-24">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Stay Cool in Miami with <span class="text-yellow-300">Premium AC Services</span></h1>
-                <p class="text-xl mb-8">Professional installation, repair, and maintenance of air conditioning systems since 2022.</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4" data-en="Stay Cool in Miami with <span class='text-yellow-300'>Premium AC Services</span>" data-es="Mantente fresco en Miami con <span class='text-yellow-300'>Servicios Premium de AC</span>">Stay Cool in Miami with <span class="text-yellow-300">Premium AC Services</span></h1>
+                <p class="text-xl mb-8" data-en="Professional installation, repair, and maintenance of air conditioning systems since 2022." data-es="Instalación, reparación y mantenimiento profesional de sistemas de aire acondicionado desde 2022.">Professional installation, repair, and maintenance of air conditioning systems since 2022.</p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="tel:+13058343907" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                    <a href="tel:+13058343907" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-6 rounded-lg text-center transition duration-300" data-en="<i class='fas fa-phone mr-2'></i> Call Now: (305) 834-3907" data-es="<i class='fas fa-phone mr-2'></i> Llama ahora: (305) 834-3907">
                         <i class="fas fa-phone mr-2"></i> Call Now: (305) 834-3907
                     </a>
-                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg text-center transition duration-300">
+                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-lg text-center transition duration-300" data-en="<i class='fas fa-envelope mr-2'></i> Get a Free Quote" data-es="<i class='fas fa-envelope mr-2'></i> Obtén una cotización gratis">
                         <i class="fas fa-envelope mr-2"></i> Get a Free Quote
                     </a>
                 </div>
@@ -104,8 +101,8 @@
     <section id="services" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-blue-600 mb-4">Our Professional Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive air conditioning solutions for your home or business in Miami and Hialeah.</p>
+                <h2 class="text-3xl font-bold text-blue-600 mb-4" data-en="Our Professional Services" data-es="Nuestros Servicios Profesionales">Our Professional Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-en="Comprehensive air conditioning solutions for your home or business in Miami and Hialeah." data-es="Soluciones completas de aire acondicionado para tu hogar o negocio en Miami y Hialeah.">Comprehensive air conditioning solutions for your home or business in Miami and Hialeah.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -115,9 +112,9 @@
                         <i class="fas fa-tools text-blue-600 text-6xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3">AC Repair</h3>
-                        <p class="text-gray-600 mb-4">Fast and reliable repair services for all types of air conditioning systems, from minor fixes to major component replacements.</p>
-                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        <h3 class="text-xl font-bold text-blue-600 mb-3" data-en="AC Repair" data-es="Reparación de AC">AC Repair</h3>
+                        <p class="text-gray-600 mb-4" data-en="Fast and reliable repair services for all types of air conditioning systems, from minor fixes to major component replacements." data-es="Servicios de reparación rápidos y confiables para todo tipo de sistemas de aire acondicionado, desde arreglos menores hasta reemplazos de componentes principales.">Fast and reliable repair services for all types of air conditioning systems, from minor fixes to major component replacements.</p>
+                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center" data-en="Schedule Repair <i class='fas fa-arrow-right ml-2'></i>" data-es="Agendar Reparación <i class='fas fa-arrow-right ml-2'></i>">
                             Schedule Repair <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -129,9 +126,9 @@
                         <i class="fas fa-home text-blue-600 text-6xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3">AC Installation</h3>
-                        <p class="text-gray-600 mb-4">Professional installation of new air conditioning systems with proper sizing, ductwork evaluation, and energy efficiency considerations.</p>
-                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        <h3 class="text-xl font-bold text-blue-600 mb-3" data-en="AC Installation" data-es="Instalación de AC">AC Installation</h3>
+                        <p class="text-gray-600 mb-4" data-en="Professional installation of new air conditioning systems with proper sizing, ductwork evaluation, and energy efficiency considerations." data-es="Instalación profesional de nuevos sistemas de aire acondicionado con dimensionamiento adecuado, evaluación de ductos y consideraciones de eficiencia energética.">Professional installation of new air conditioning systems with proper sizing, ductwork evaluation, and energy efficiency considerations.</p>
+                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center" data-en="Get Installation Quote <i class='fas fa-arrow-right ml-2'></i>" data-es="Obtener Cotización <i class='fas fa-arrow-right ml-2'></i>">
                             Get Installation Quote <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -143,9 +140,9 @@
                         <i class="fas fa-clipboard-check text-blue-600 text-6xl"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-blue-600 mb-3">Maintenance Plans</h3>
-                        <p class="text-gray-600 mb-4">Regular maintenance services to keep your AC running efficiently, prevent breakdowns, and extend the lifespan of your system.</p>
-                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center">
+                        <h3 class="text-xl font-bold text-blue-600 mb-3" data-en="Maintenance Plans" data-es="Planes de Mantenimiento">Maintenance Plans</h3>
+                        <p class="text-gray-600 mb-4" data-en="Regular maintenance services to keep your AC running efficiently, prevent breakdowns, and extend the lifespan of your system." data-es="Servicios de mantenimiento regular para mantener tu AC funcionando eficientemente, prevenir fallas y extender la vida útil de tu sistema.">Regular maintenance services to keep your AC running efficiently, prevent breakdowns, and extend the lifespan of your system.</p>
+                        <a href="#contact" class="text-blue-600 font-medium hover:text-blue-800 flex items-center" data-en="Learn About Plans <i class='fas fa-arrow-right ml-2'></i>" data-es="Conoce los Planes <i class='fas fa-arrow-right ml-2'></i>">
                             Learn About Plans <i class="fas fa-arrow-right ml-2"></i>
                         </a>
                     </div>
@@ -164,31 +161,31 @@
                          class="rounded-lg shadow-lg w-full">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold text-blue-600 mb-6">About Dalian AC Corp</h2>
-                    <p class="text-gray-600 mb-4">Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer.</p>
-                    <p class="text-gray-600 mb-4">Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry.</p>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-6" data-en="About Dalian AC Corp" data-es="Acerca de Dalian AC Corp">About Dalian AC Corp</h2>
+                    <p class="text-gray-600 mb-4" data-en="Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer." data-es="Fundada en 2022, Dalian AC Corp se ha convertido rápidamente en un nombre confiable para servicios de aire acondicionado en Miami y Hialeah. Nos enorgullecemos de ofrecer un servicio honesto, confiable y profesional a cada cliente.">Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer.</p>
+                    <p class="text-gray-600 mb-4" data-en="Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry." data-es="Nuestro equipo de técnicos certificados tiene amplia experiencia trabajando con todas las principales marcas y sistemas de AC. Mantenemos nuestros conocimientos actualizados con las últimas tecnologías y mejores prácticas de la industria.">Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry.</p>
                     <div class="bg-blue-50 p-4 rounded-lg mb-6">
-                        <h3 class="font-bold text-blue-600 mb-2">Why Choose Us?</h3>
+                        <h3 class="font-bold text-blue-600 mb-2" data-en="Why Choose Us?" data-es="¿Por qué elegirnos?">Why Choose Us?</h3>
                         <ul class="space-y-2">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>Licensed and insured professionals</span>
+                                <span data-en="Licensed and insured professionals" data-es="Profesionales licenciados y asegurados">Licensed and insured professionals</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>Upfront pricing with no hidden fees</span>
+                                <span data-en="Upfront pricing with no hidden fees" data-es="Precios transparentes sin cargos ocultos">Upfront pricing with no hidden fees</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>Same-day service available</span>
+                                <span data-en="Same-day service available" data-es="Servicio el mismo día disponible">Same-day service available</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
-                                <span>100% satisfaction guarantee</span>
+                                <span data-en="100% satisfaction guarantee" data-es="Garantía de satisfacción del 100%">100% satisfaction guarantee</span>
                             </li>
                         </ul>
                     </div>
-                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-en="Contact Our Team" data-es="Contacta a Nuestro Equipo">
                         Contact Our Team
                     </a>
                 </div>
@@ -201,76 +198,76 @@
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl font-bold text-blue-600 mb-4">Contact Dalian AC Corp</h2>
-                    <p class="text-xl text-gray-600">Get in touch for a free estimate or to schedule service in Miami or Hialeah.</p>
+                    <h2 class="text-3xl font-bold text-blue-600 mb-4" data-en="Contact Dalian AC Corp" data-es="Contacta a Dalian AC Corp">Contact Dalian AC Corp</h2>
+                    <p class="text-xl text-gray-600" data-en="Get in touch for a free estimate or to schedule service in Miami or Hialeah." data-es="Contáctanos para una estimación gratis o para programar servicio en Miami o Hialeah.">Get in touch for a free estimate or to schedule service in Miami or Hialeah.</p>
                 </div>
                 
                 <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden">
                     <div class="md:flex">
                         <div class="md:w-1/2 bg-blue-600 text-white p-8">
-                            <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                            <h3 class="text-2xl font-bold mb-6" data-en="Contact Information" data-es="Información de Contacto">Contact Information</h3>
                             <div class="space-y-6">
                                 <div class="flex items-start">
                                     <i class="fas fa-map-marker-alt mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold">Service Area</h4>
+                                        <h4 class="font-bold" data-en="Service Area" data-es="Área de Servicio">Service Area</h4>
                                         <p class="text-blue-100">Miami & Hialeah, FL</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-phone mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold">Phone</h4>
+                                        <h4 class="font-bold" data-en="Phone" data-es="Teléfono">Phone</h4>
                                         <a href="tel:+13058343907" class="text-blue-100 hover:text-white">(305) 834-3907</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-envelope mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold">Email</h4>
+                                        <h4 class="font-bold" data-en="Email" data-es="Correo Electrónico">Email</h4>
                                         <a href="mailto:info@dalianac.com" class="text-blue-100 hover:text-white">info@dalianac.com</a>
                                     </div>
                                 </div>
                                 <div class="flex items-start">
                                     <i class="fas fa-clock mt-1 mr-4 text-blue-200"></i>
                                     <div>
-                                        <h4 class="font-bold">Hours</h4>
-                                        <p class="text-blue-100">Monday - Saturday: 8AM - 6PM<br>Emergency service available</p>
+                                        <h4 class="font-bold" data-en="Hours" data-es="Horario">Hours</h4>
+                                        <p class="text-blue-100" data-en="Monday - Saturday: 8AM - 6PM<br>Emergency service available" data-es="Lunes - Sábado: 8AM - 6PM<br>Servicio de emergencia disponible">Monday - Saturday: 8AM - 6PM<br>Emergency service available</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="md:w-1/2 p-8">
-                            <h3 class="text-2xl font-bold text-blue-600 mb-6">Send Us a Message</h3>
+                            <h3 class="text-2xl font-bold text-blue-600 mb-6" data-en="Send Us a Message" data-es="Envíanos un Mensaje">Send Us a Message</h3>
                             <form id="contact-form" class="space-y-4">
                                 <div>
-                                    <label for="name" class="block text-gray-700 mb-1 required-field">Name</label>
+                                    <label for="name" class="block text-gray-700 mb-1 required-field" data-en="Name" data-es="Nombre">Name</label>
                                     <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
-                                    <label for="email" class="block text-gray-700 mb-1">Email</label>
+                                    <label for="email" class="block text-gray-700 mb-1" data-en="Email" data-es="Correo Electrónico">Email</label>
                                     <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
-                                    <label for="phone" class="block text-gray-700 mb-1 required-field">Phone</label>
+                                    <label for="phone" class="block text-gray-700 mb-1 required-field" data-en="Phone" data-es="Teléfono">Phone</label>
                                     <input type="tel" id="phone" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 </div>
                                 <div>
-                                    <label for="service" class="block text-gray-700 mb-1 required-field">Service Needed</label>
+                                    <label for="service" class="block text-gray-700 mb-1 required-field" data-en="Service Needed" data-es="Servicio Necesitado">Service Needed</label>
                                     <select id="service" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                         <option value="">Select a service</option>
-                                        <option value="repair">AC Repair</option>
-                                        <option value="installation">AC Installation</option>
-                                        <option value="maintenance">Maintenance</option>
-                                        <option value="other">Other</option>
+                                        <option value="repair" data-en="AC Repair" data-es="Reparación de AC">AC Repair</option>
+                                        <option value="installation" data-en="AC Installation" data-es="Instalación de AC">AC Installation</option>
+                                        <option value="maintenance" data-en="Maintenance" data-es="Mantenimiento">Maintenance</option>
+                                        <option value="other" data-en="Other" data-es="Otro">Other</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="message" class="block text-gray-700 mb-1">Message</label>
+                                    <label for="message" class="block text-gray-700 mb-1" data-en="Message" data-es="Mensaje">Message</label>
                                     <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
                                 </div>
-                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300" data-en="Send Message" data-es="Enviar Mensaje">
                                     Send Message
                                 </button>
                             </form>
@@ -290,28 +287,28 @@
                         <i class="fas fa-snowflake text-blue-400 text-2xl mr-2"></i>
                         <span class="text-xl font-bold">Dalian AC Corp</span>
                     </div>
-                    <p class="text-gray-400">Professional air conditioning services in Miami and Hialeah since 2022.</p>
+                    <p class="text-gray-400" data-en="Professional air conditioning services in Miami and Hialeah since 2022." data-es="Servicios profesionales de aire acondicionado en Miami y Hialeah desde 2022.">Professional air conditioning services in Miami and Hialeah since 2022.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <h3 class="text-lg font-bold mb-4" data-en="Services" data-es="Servicios">Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="#services" class="text-gray-400 hover:text-white">AC Repair</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">AC Installation</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">Maintenance</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white">Emergency Service</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-en="AC Repair" data-es="Reparación de AC">AC Repair</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-en="AC Installation" data-es="Instalación de AC">AC Installation</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-en="Maintenance" data-es="Mantenimiento">Maintenance</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white" data-en="Emergency Service" data-es="Servicio de Emergencia">Emergency Service</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <h3 class="text-lg font-bold mb-4" data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Testimonials</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white">Free Estimate</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white" data-en="About Us" data-es="Nosotros">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white" data-en="Contact" data-es="Contacto">Contact</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white" data-en="Free Estimate" data-es="Estimado Gratis">Free Estimate</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <h3 class="text-lg font-bold mb-4" data-en="Contact" data-es="Contacto">Contact</h3>
                     <ul class="space-y-2">
                         <li class="flex items-center">
                             <i class="fas fa-phone-alt text-blue-400 mr-2"></i>
@@ -340,7 +337,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Dalian AC Corp. All rights reserved.</p>
+                <p data-en="&copy; 2023 Dalian AC Corp. All rights reserved." data-es="&copy; 2023 Dalian AC Corp. Todos los derechos reservados.">&copy; 2023 Dalian AC Corp. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -369,7 +366,9 @@
             const service = document.getElementById('service').value;
             
             if (!name || !phone || !service) {
-                alert('Please fill in all required fields (marked with *)');
+                alert(document.documentElement.lang === 'es' ? 
+                    'Por favor complete todos los campos requeridos (marcados con *)' : 
+                    'Please fill in all required fields (marked with *)');
                 return;
             }
             
@@ -380,10 +379,12 @@
                 <div class="bg-white p-8 rounded-lg shadow-xl max-w-md mx-4">
                     <div class="text-center">
                         <i class="fas fa-check-circle text-green-500 text-5xl mb-4"></i>
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
-                        <p class="text-gray-600 mb-6">Your message has been sent successfully. We will contact you shortly.</p>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">${document.documentElement.lang === 'es' ? '¡Gracias!' : 'Thank You!'}</h3>
+                        <p class="text-gray-600 mb-6">${document.documentElement.lang === 'es' ? 
+                            'Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo pronto.' : 
+                            'Your message has been sent successfully. We will contact you shortly.'}</p>
                         <button onclick="this.parentElement.parentElement.parentElement.remove()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
-                            Close
+                            ${document.documentElement.lang === 'es' ? 'Cerrar' : 'Close'}
                         </button>
                     </div>
                 </div>
@@ -410,90 +411,78 @@
             });
         });
 
-        // Language switcher
-        document.getElementById('lang-es').addEventListener('click', function() {
-            document.documentElement.lang = 'es';
-            this.classList.add('bg-blue-600', 'text-white');
-            this.classList.remove('bg-gray-200', 'text-gray-700');
-            document.getElementById('lang-en').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('lang-en').classList.remove('bg-blue-600', 'text-white');
+        // Language switcher function
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
             
-            // Spanish translations
-            document.querySelector('title').textContent = 'Dalian AC Corp | Servicios Profesionales de Aire Acondicionado en Miami/Hialeah';
-            document.querySelector('.hero-gradient h1').textContent = 'Mantente fresco en Miami con nuestros Servicios Premium de Aire Acondicionado';
-            document.querySelector('.hero-gradient p').textContent = 'Instalación, reparación y mantenimiento profesional de sistemas de aire acondicionado desde 2022.';
-            document.querySelectorAll('a[href="tel:+13058343907"]')[0].innerHTML = '<i class="fas fa-phone mr-2"></i> Llama ahora: (305) 834-3907';
-            document.querySelectorAll('a[href="#contact"]')[1].innerHTML = '<i class="fas fa-envelope mr-2"></i> Obtén una cotización gratis';
-            document.querySelector('#services h2').textContent = 'Nuestros Servicios Profesionales';
-            document.querySelector('#services p').textContent = 'Soluciones completas de aire acondicionado para tu hogar o negocio en Miami y Hialeah.';
-            document.querySelector('#about h2').textContent = 'Acerca de Dalian AC Corp';
-            document.querySelector('#about p').textContent = 'Fundada en 2022, Dalian AC Corp se ha convertido rápidamente en un nombre confiable para servicios de aire acondicionado en Miami y Hialeah. Nos enorgullecemos de ofrecer un servicio honesto, confiable y profesional a cada cliente.';
-            document.querySelector('#about p:nth-of-type(2)').textContent = 'Nuestro equipo de técnicos certificados tiene amplia experiencia trabajando con todas las principales marcas y sistemas de AC. Mantenemos nuestros conocimientos actualizados con las últimas tecnologías y mejores prácticas de la industria.';
-            document.querySelector('#about .bg-blue-50 h3').textContent = '¿Por qué elegirnos?';
-            document.querySelector('#contact h2').textContent = 'Contacta a Dalian AC Corp';
-            document.querySelector('#contact p').textContent = 'Contáctanos para una estimación gratis o para programar servicio en Miami o Hialeah.';
-            document.querySelector('#contact .bg-blue-600 h3').textContent = 'Información de Contacto';
-            document.querySelector('#contact .bg-blue-600 h4').textContent = 'Área de Servicio';
-            document.querySelector('#contact .bg-blue-600 h4:nth-of-type(2)').textContent = 'Teléfono';
-            document.querySelector('#contact .bg-blue-600 h4:nth-of-type(3)').textContent = 'Correo Electrónico';
-            document.querySelector('#contact .bg-blue-600 h4:nth-of-type(4)').textContent = 'Horario';
-            document.querySelector('#contact .bg-blue-600 p:nth-of-type(2)').innerHTML = 'Lunes - Sábado: 8AM - 6PM<br>Servicio de emergencia disponible';
-            document.querySelector('#contact .p-8 h3').textContent = 'Envíanos un Mensaje';
-            document.querySelector('#contact-form label[for="name"]').textContent = 'Nombre';
-            document.querySelector('#contact-form label[for="email"]').textContent = 'Correo Electrónico';
-            document.querySelector('#contact-form label[for="phone"]').textContent = 'Teléfono';
-            document.querySelector('#contact-form label[for="service"]').textContent = 'Servicio Necesitado';
-            document.querySelector('#contact-form option[value="repair"]').textContent = 'Reparación de AC';
-            document.querySelector('#contact-form option[value="installation"]').textContent = 'Instalación de AC';
-            document.querySelector('#contact-form option[value="maintenance"]').textContent = 'Mantenimiento';
-            document.querySelector('#contact-form label[for="message"]').textContent = 'Mensaje';
-            document.querySelector('#contact-form button').textContent = 'Enviar Mensaje';
-            document.querySelectorAll('.required-field').forEach(el => {
-                el.textContent = el.textContent.replace('*', '') + '*';
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en], [data-es]').forEach(element => {
+                if (element.tagName === 'OPTION' && element.value) {
+                    // Skip options with values (they're handled separately)
+                    return;
+                }
+                
+                const text = lang === 'es' ? element.getAttribute('data-es') : element.getAttribute('data-en');
+                if (text) {
+                    if (element.innerHTML.includes('<i class') || element.innerHTML.includes('<span class')) {
+                        // Preserve HTML inside the element
+                        const temp = document.createElement('div');
+                        temp.innerHTML = text;
+                        const newText = temp.textContent || temp.innerText;
+                        const htmlContent = text.replace(newText, element.innerHTML);
+                        element.innerHTML = htmlContent;
+                    } else {
+                        element.innerHTML = text;
+                    }
+                }
             });
+            
+            // Update select options
+            document.querySelectorAll('select option').forEach(option => {
+                const text = lang === 'es' ? option.getAttribute('data-es') : option.getAttribute('data-en');
+                if (text && !option.value) { // Update only the displayed text, not the value
+                    option.textContent = text;
+                }
+            });
+            
+            // Toggle button states
+            if (lang === 'es') {
+                document.getElementById('lang-es').classList.add('bg-blue-600', 'text-white');
+                document.getElementById('lang-es').classList.remove('bg-gray-200', 'text-gray-700');
+                document.getElementById('lang-en').classList.add('bg-gray-200', 'text-gray-700');
+                document.getElementById('lang-en').classList.remove('bg-blue-600', 'text-white');
+                
+                // Show/hide language-specific elements
+                document.querySelectorAll('.english-only').forEach(el => el.style.display = 'none');
+                document.querySelectorAll('.spanish-only').forEach(el => el.style.display = 'block');
+            } else {
+                document.getElementById('lang-en').classList.add('bg-blue-600', 'text-white');
+                document.getElementById('lang-en').classList.remove('bg-gray-200', 'text-gray-700');
+                document.getElementById('lang-es').classList.add('bg-gray-200', 'text-gray-700');
+                document.getElementById('lang-es').classList.remove('bg-blue-600', 'text-white');
+                
+                // Show/hide language-specific elements
+                document.querySelectorAll('.english-only').forEach(el => el.style.display = 'block');
+                document.querySelectorAll('.spanish-only').forEach(el => el.style.display = 'none');
+            }
+            
+            // Update page title
+            document.title = lang === 'es' ? 
+                'Dalian AC Corp | Servicios Profesionales de Aire Acondicionado en Miami/Hialeah' : 
+                'Dalian AC Corp | Professional AC Services in Miami/Hialeah';
+        }
+
+        // Language switcher event listeners
+        document.getElementById('lang-es').addEventListener('click', function() {
+            setLanguage('es');
         });
 
         document.getElementById('lang-en').addEventListener('click', function() {
-            document.documentElement.lang = 'en';
-            this.classList.add('bg-blue-600', 'text-white');
-            this.classList.remove('bg-gray-200', 'text-gray-700');
-            document.getElementById('lang-es').classList.add('bg-gray-200', 'text-gray-700');
-            document.getElementById('lang-es').classList.remove('bg-blue-600', 'text-white');
-            
-            // Restore English text
-            document.querySelector('title').textContent = 'Dalian AC Corp | Professional AC Services in Miami/Hialeah';
-            document.querySelector('.hero-gradient h1').textContent = 'Stay Cool in Miami with Premium AC Services';
-            document.querySelector('.hero-gradient p').textContent = 'Professional installation, repair, and maintenance of air conditioning systems since 2022.';
-            document.querySelectorAll('a[href="tel:+13058343907"]')[0].innerHTML = '<i class="fas fa-phone mr-2"></i> Call Now: (305) 834-3907';
-            document.querySelectorAll('a[href="#contact"]')[1].innerHTML = '<i class="fas fa-envelope mr-2"></i> Get a Free Quote';
-            document.querySelector('#services h2').textContent = 'Our Professional Services';
-            document.querySelector('#services p').textContent = 'Comprehensive air conditioning solutions for your home or business in Miami and Hialeah.';
-            document.querySelector('#about h2').textContent = 'About Dalian AC Corp';
-            document.querySelector('#about p').textContent = 'Founded in 2022, Dalian AC Corp has quickly become a trusted name for air conditioning services in Miami and Hialeah. We pride ourselves on delivering honest, reliable, and professional service to every customer.';
-            document.querySelector('#about p:nth-of-type(2)').textContent = 'Our team of certified technicians has extensive experience working with all major AC brands and systems. We stay up-to-date with the latest technologies and best practices in the industry.';
-            document.querySelector('#about .bg-blue-50 h3').textContent = 'Why Choose Us?';
-            document.querySelector('#contact h2').textContent = 'Contact Dalian AC Corp';
-            document.querySelector('#contact p').textContent = 'Get in touch for a free estimate or to schedule service in Miami or Hialeah.';
-            document.querySelector('#contact .bg-blue-600 h3').textContent = 'Contact Information';
-            document.querySelector('#contact .bg-blue-600 h4').textContent = 'Service Area';
-            document.querySelector('#contact .bg-blue-600 h4:nth-of-type(2)').textContent = 'Phone';
-            document.querySelector('#contact .bg-blue-600 h4:nth-of-type(3)').textContent = 'Email';
-            document.querySelector('#contact .bg-blue-600 h4:nth-of-type(4)').textContent = 'Hours';
-            document.querySelector('#contact .bg-blue-600 p:nth-of-type(2)').innerHTML = 'Monday - Saturday: 8AM - 6PM<br>Emergency service available';
-            document.querySelector('#contact .p-8 h3').textContent = 'Send Us a Message';
-            document.querySelector('#contact-form label[for="name"]').textContent = 'Name';
-            document.querySelector('#contact-form label[for="email"]').textContent = 'Email';
-            document.querySelector('#contact-form label[for="phone"]').textContent = 'Phone';
-            document.querySelector('#contact-form label[for="service"]').textContent = 'Service Needed';
-            document.querySelector('#contact-form option[value="repair"]').textContent = 'AC Repair';
-            document.querySelector('#contact-form option[value="installation"]').textContent = 'AC Installation';
-            document.querySelector('#contact-form option[value="maintenance"]').textContent = 'Maintenance';
-            document.querySelector('#contact-form label[for="message"]').textContent = 'Message';
-            document.querySelector('#contact-form button').textContent = 'Send Message';
-            document.querySelectorAll('.required-field').forEach(el => {
-                el.textContent = el.textContent.replace('*', '') + '*';
-            });
+            setLanguage('en');
         });
+
+        // Initialize language
+        setLanguage('en');
     </script>
 </body>
 </html>
