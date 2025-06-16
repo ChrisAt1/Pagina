@@ -413,7 +413,13 @@
         // Language switcher function
         function setLanguage(lang) {
             document.documentElement.lang = lang;
-            
+
+            // Clear any existing duplicate icons before updating
+            document.querySelectorAll('.hero-gradient a').forEach(link => {
+                link.innerHTML = link.innerHTML.replace(/<i class="fas fa-phone"><\/i>/g, '').replace(/<i class="fas fa-envelope"><\/i>/g, '');
+            });
+
+            // Update all elements with data attributes
             document.querySelectorAll('[data-en], [data-es]').forEach(element => {
                 if (element.tagName === 'OPTION' && element.value) return;
                 const text = lang === 'es' ? element.getAttribute('data-es') : element.getAttribute('data-en');
@@ -429,12 +435,14 @@
                     }
                 }
             });
-            
+
+            // Update select options
             document.querySelectorAll('select option').forEach(option => {
                 const text = lang === 'es' ? option.getAttribute('data-es') : option.getAttribute('data-en');
                 if (text && !option.value) option.textContent = text;
             });
-            
+
+            // Toggle button states and language-specific elements
             if (lang === 'es') {
                 document.getElementById('lang-es').classList.add('bg-blue-600', 'text-white');
                 document.getElementById('lang-es').classList.remove('bg-gray-200', 'text-gray-800');
@@ -450,14 +458,17 @@
                 document.querySelectorAll('.english-only').forEach(el => el.style.display = 'block');
                 document.querySelectorAll('.spanish-only').forEach(el => el.style.display = 'none');
             }
-            
+
             document.title = lang === 'es' ? 
                 'Dalian AC Corp | Servicios Profesionales de Aire Acondicionado en Miami/Hialeah' : 
                 'Dalian AC Corp | Professional AC Services in Miami/Hialeah';
         }
 
+        // Language switcher event listeners
         document.getElementById('lang-es').addEventListener('click', () => setLanguage('es'));
         document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+
+        // Initialize language
         setLanguage('en');
     </script>
 </body>
