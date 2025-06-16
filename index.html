@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dalian AC Corp | Professional AC Services in Miami/Hialeah</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Usamos una versión específica de Tailwind para mayor estabilidad -->
+    <script src="https://cdn.tailwindcss.com/3.3.2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         .hero-gradient {
             background: linear-gradient(135deg, #6b7280 0%, #1e3a8a 100%);
@@ -417,6 +418,12 @@
             // Clear any existing duplicate icons before updating
             document.querySelectorAll('.hero-gradient a').forEach(link => {
                 link.innerHTML = link.innerHTML.replace(/<i class="fas fa-phone"><\/i>/g, '').replace(/<i class="fas fa-envelope"><\/i>/g, '');
+                // Ensure only one icon remains by resetting to the base content
+                if (link.getAttribute('href') === 'tel:+13058343907') {
+                    link.innerHTML = `<i class="fas fa-phone mr-2"></i> ${lang === 'es' ? 'Llama ahora: (305) 834-3907' : 'Call Now: (305) 834-3907'}`;
+                } else if (link.getAttribute('href') === '#contact') {
+                    link.innerHTML = `<i class="fas fa-envelope mr-2"></i> ${lang === 'es' ? 'Obtén una cotización gratis' : 'Get a Free Quote'}`;
+                }
             });
 
             // Update all elements with data attributes
