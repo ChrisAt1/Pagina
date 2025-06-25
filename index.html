@@ -35,6 +35,10 @@
         .cat-image:hover {
             transform: scale(1.05);
         }
+
+        .hidden-element {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-pink-50 dark:bg-pink-900 min-h-screen flex flex-col items-center justify-center p-4 transition-colors duration-300">
@@ -44,7 +48,7 @@
             
             <p id="question" class="text-xl text-pink-700 dark:text-pink-100 mb-8">¿Es verdad?</p>
             
-            <div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
+            <div id="buttons-container" class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4 justify-center">
                 <button id="yes-btn" class="px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
                     <i class="fas fa-check mr-2"></i> Sí
                 </button>
@@ -53,7 +57,7 @@
                 </button>
             </div>
             
-            <div id="cat-container" class="mt-8 hidden">
+            <div id="cat-container" class="mt-8 hidden-element">
                 <img src="https://png.pngtree.com/png-vector/20240720/ourmid/pngtree-cute-and-funny-fat-cat-animal-png-image_12993558.png" 
                      alt="Gato gordo" 
                      class="cat-image mx-auto w-64 h-64 object-contain">
@@ -68,6 +72,9 @@
             const noBtn = document.getElementById('no-btn');
             const yesBtn = document.getElementById('yes-btn');
             const catContainer = document.getElementById('cat-container');
+            const mainText = document.getElementById('main-text');
+            const question = document.getElementById('question');
+            const buttonsContainer = document.getElementById('buttons-container');
             
             noBtn.addEventListener('mouseover', function(e) {
                 // Calcular posición aleatoria
@@ -86,10 +93,10 @@
             // Mostrar el gato cuando se hace clic en "Sí"
             yesBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.getElementById('main-text').classList.add('hidden');
-                document.getElementById('question').classList.add('hidden');
-                document.querySelector('.flex').classList.add('hidden');
-                catContainer.classList.remove('hidden');
+                mainText.classList.add('hidden-element');
+                question.classList.add('hidden-element');
+                buttonsContainer.classList.add('hidden-element');
+                catContainer.classList.remove('hidden-element');
             });
             
             // Prevenir comportamiento por defecto en todos los enlaces
